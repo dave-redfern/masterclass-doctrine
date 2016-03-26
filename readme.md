@@ -1,27 +1,43 @@
-# Laravel PHP Framework
+# Object Oriented PHP Masterclass Repository
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+Welcome to the code repository for the Object Oriented PHP Masterclass.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+You will use this repository to complete the lessons which you will receive daily over the next few weeks.
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+Warnings and Disclaimers
+------------------------
 
-## Official Documentation
+THIS CODE IS PROVIDED WITH NO WARRANTY. IT HAS NOT BEEN SECURITY REVIEWED AND CONTAINS KNOWN SECURITY VULNERABILITIES. DO NOT RUN THIS CODE IN PRODUCTION ENVIRONMENTS.
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+Installing This Codebase
+------------------------
 
-## Contributing
+**NOTE: these instructions are for Mac or Linux. You're unfortunately on your own for Windows.**
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+1. Fork this repository. You'll see the Fork option and you can fork it to your own GitHub.
+2. Clone the repository using ```git clone```.
+3. Create a virtual host (see the virtual host data at the bottom of this file). Also add an entry to your /etc/hosts file.
+4. Create a database in MySQL.
+5. Use the schema.sql file to create a database schema.
+6. Copy config.php-init to config.php and fill in the database information.
+7. Copy public/htaccess-dist to public/.htaccess.
+8. Go to your local site and create a user account.
 
-## Security Vulnerabilities
+Virtual Host Configuration
+--------------------------
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+Use the following VirtualHost configuration:
 
-## License
+```
+<VirtualHost *:80>
+    ServerName news.local
+    DocumentRoot /path/to/codebase/public
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+    <Directory /path/to/codebase/publicpublic>
+        DirectoryIndex index.php
+        AllowOverride all
+        Order allow,deny
+        Allow from all
+    </Directory>
+</VirtualHost>
+```
