@@ -2,6 +2,8 @@
 
 namespace App\Entities;
 
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use LaravelDoctrine\ORM\Auth\Authenticatable;
 use Somnambulist\Doctrine\Contracts\Identifiable as IdentifiableContract;
 use Somnambulist\Doctrine\Traits\Identifiable;
 
@@ -11,10 +13,11 @@ use Somnambulist\Doctrine\Traits\Identifiable;
  * @package    App\Entities
  * @subpackage App\Entities\User
  */
-class User implements IdentifiableContract
+class User implements IdentifiableContract, AuthenticatableContract
 {
 
     use Identifiable;
+    use Authenticatable;
 
     /**
      * @var string

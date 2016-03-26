@@ -2,7 +2,10 @@
 
 namespace App\Entities;
 
-use Carbon\Carbon;
+use App\Support\Contracts\Blamable as BlamableContract;
+use App\Support\Contracts\Timestampable as TimestampableContract;
+use App\Support\Traits\Blamable;
+use App\Support\Traits\Timestampable;
 use Somnambulist\Doctrine\Contracts\Identifiable as IdentifiableContract;
 use Somnambulist\Doctrine\Traits\Identifiable;
 
@@ -12,10 +15,12 @@ use Somnambulist\Doctrine\Traits\Identifiable;
  * @package    App\Entities
  * @subpackage App\Entities\Comment
  */
-class Comment implements IdentifiableContract
+class Comment implements IdentifiableContract, BlamableContract, TimestampableContract
 {
 
     use Identifiable;
+    use Blamable;
+    use Timestampable;
 
     /**
      * @var Story
@@ -26,16 +31,6 @@ class Comment implements IdentifiableContract
      * @var string
      */
     protected $comment;
-
-    /**
-     * @var string
-     */
-    protected $createdBy;
-
-    /**
-     * @var Carbon
-     */
-    protected $createdOn;
 
     /**
      * Constructor.
@@ -85,46 +80,6 @@ class Comment implements IdentifiableContract
     public function setComment($comment)
     {
         $this->comment = $comment;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCreatedBy()
-    {
-        return $this->createdBy;
-    }
-
-    /**
-     * @param string $createdBy
-     *
-     * @return $this
-     */
-    public function setCreatedBy($createdBy)
-    {
-        $this->createdBy = $createdBy;
-
-        return $this;
-    }
-
-    /**
-     * @return Carbon
-     */
-    public function getCreatedOn()
-    {
-        return $this->createdOn;
-    }
-
-    /**
-     * @param Carbon $createdOn
-     *
-     * @return $this
-     */
-    public function setCreatedOn(Carbon $createdOn)
-    {
-        $this->createdOn = $createdOn;
 
         return $this;
     }
