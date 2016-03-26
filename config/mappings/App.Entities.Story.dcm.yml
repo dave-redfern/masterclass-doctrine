@@ -24,3 +24,10 @@ App\Entities\Story:
 
         createdOn:
             type: datetime
+
+    oneToMany:
+        comments:
+            targetEntity: App\Entities\Comment
+            mappedBy: story
+            cascade: [ 'persist', 'remove' ]
+            orderBy: { 'id': 'DESC' }

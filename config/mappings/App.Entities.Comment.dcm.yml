@@ -10,9 +10,6 @@ App\Entities\Comment:
                 strategy: auto
 
     fields:
-        storyId:
-            type: integer
-
         comment:
             type: text
             length: 64000
@@ -23,3 +20,11 @@ App\Entities\Comment:
 
         createdOn:
             type: datetime
+
+    manyToOne:
+        story:
+            targetEntity: App\Entities\Story
+            inversedBy: comments
+            cascade: [ 'persist' ]
+            joinColumn:
+                onDelete: CASCADE
