@@ -29,5 +29,6 @@ App\Entities\Story:
         comments:
             targetEntity: App\Entities\Comment
             mappedBy: story
+            fetch: EXTRA_LAZY
             cascade: [ 'persist', 'remove' ]
             orderBy: { 'id': 'DESC' }
