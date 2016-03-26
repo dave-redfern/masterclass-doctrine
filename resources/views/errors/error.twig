@@ -2,6 +2,12 @@
 
 {% block content %}
 
+    {% block error %}{% endblock %}
+
+    {% if exception %}
+        {% set e = exception %}
+    {% endif %}
+
     <p>Error at line {{ e.line }} in {{ e.file }}:</p>
     <p>{{ e.message }}</p>
 
