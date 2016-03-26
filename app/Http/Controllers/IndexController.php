@@ -41,8 +41,8 @@ class IndexController extends Controller
      */
     public function index()
     {
-        //$stories = $this->stories->findStoriesWithCommentCounts();
-        $stories = $this->stories->findAll();
+        //$stories = $this->stories->findBy([], ['id' => 'DESC']);
+        $stories = $this->stories->findWithCommentCount();
 
         return view('index/index', ['stories' => $stories]);
     }
