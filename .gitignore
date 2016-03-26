@@ -1,5 +1,6 @@
 /vendor
 /bin
+/storage
 /node_modules
 /public/storage
 Homestead.yaml
