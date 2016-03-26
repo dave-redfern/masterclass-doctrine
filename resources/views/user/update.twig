@@ -1,0 +1,19 @@
+{% extends 'layouts/layout' %}
+
+{% block content %}
+    {% include '_partials/errors' with {error: error} %}
+
+    <form action="{{ route('user.account.update') }}" method="post">
+        {{ csrf_field() }}
+
+        <input type="hidden" name="username" value="{{ user.username }}" />
+        <input type="hidden" name="email" value="{{ user.email }}" />
+
+        <label>Username:</label> {{ user.username }}<br />
+        <label>Email:</label> {{ user.email }} <br />
+
+        <label>Password</label> <input type="password" name="password" value="" /><br />
+        <label>Password Again</label> <input type="password" name="password_confirmation" value="" /><br />
+        <input type="submit" name="updatepw" value="Update Password" />
+    </form>
+{% endblock %}

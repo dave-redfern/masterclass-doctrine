@@ -1,0 +1,13 @@
+{% extends 'layouts/layout' %}
+
+{% block content %}
+
+    <ol>
+        {% for story in stories %}
+            <li>
+                {% include 'story/_story_summary' with {story: story} %}
+            </li>
+        {% endfor %}
+    </ol>
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'layouts/layout' %}
+
+{% block content %}
+    <form action="{{ route('story.store') }}" method="post">
+        {% include '_partials/errors' with {errors: errors} %}
+        {{ csrf_field() }}
+        <label>Headline:</label> <input type="text" name="headline" value="{{ old('headline') }}" /> <br />
+        <label>URL:</label> <input type="text" name="url" value="{{ old('url') }}" /><br />
+        <input type="submit" name="create" value="Create" />
+    </form>
+{% endblock %}

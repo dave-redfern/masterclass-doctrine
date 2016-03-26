@@ -1,0 +1,21 @@
+{% extends 'layouts/layout' %}
+
+{% block content %}
+
+    {% include '_partials/errors' with {errors: errors} %}
+    {% include 'story/_story_summary' with {story: story} %}
+
+    {% if auth_user() %}
+        <form method="post" action="{{ route('comment.store', story.id) }}">
+            {{ csrf_field() }}
+            <input type="hidden" name="story_id" value="{{ story.id }}" />
+            <textarea cols="60" rows="6" name="comment">{{ old('comment') }}</textarea><br />
+            <input type="submit" name="submit" value="Submit Comment" />
+        </form>
+    {% endif %}
+
+    {% for comment in story.comments %}
+        {% include 'comment/_comment_details' with {comment: comment} %}
+    {% endfor %}
+
+{% endblock %}
