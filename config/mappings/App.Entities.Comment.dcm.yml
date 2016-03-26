@@ -1,0 +1,25 @@
+App\Entities\Comment:
+    type: entity
+    table: comment
+    repositoryClass: App\Repositories\CommentRepository
+
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: auto
+
+    fields:
+        storyId:
+            type: integer
+
+        comment:
+            type: text
+            length: 64000
+
+        createdBy:
+            type: string
+            length: 255
+
+        createdOn:
+            type: datetime

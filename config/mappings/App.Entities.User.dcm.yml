@@ -1,0 +1,27 @@
+App\Entities\User:
+    type: entity
+    table: user
+    repositoryClass: App\Repositories\UserRepository
+
+    uniqueConstraints:
+        username_unqiue_upvotenews:
+            columns: [ username ]
+
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: auto
+
+    fields:
+        username:
+            type: string
+            length: 255
+
+        email:
+            type: string
+            length: 255
+
+        password:
+            type: string
+            length: 255

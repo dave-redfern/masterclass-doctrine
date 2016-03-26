@@ -1,0 +1,26 @@
+App\Entities\Story:
+    type: entity
+    table: story
+    repositoryClass: App\Repositories\StoryRepository
+
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: auto
+
+    fields:
+        headline:
+            type: string
+            length: 500
+
+        url:
+            type: string
+            length: 500
+
+        createdBy:
+            type: string
+            length: 255
+
+        createdOn:
+            type: datetime

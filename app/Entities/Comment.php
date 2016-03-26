@@ -18,6 +18,11 @@ class Comment implements IdentifiableContract
     use Identifiable;
 
     /**
+     * @var integer
+     */
+    protected $storyId;
+
+    /**
      * @var Story
      */
     protected $story;
@@ -47,6 +52,26 @@ class Comment implements IdentifiableContract
     {
         $this->story   = $story;
         $this->comment = $comment;
+    }
+
+    /**
+     * @return int
+     */
+    public function getStoryId()
+    {
+        return $this->storyId;
+    }
+
+    /**
+     * @param int $storyId
+     *
+     * @return $this
+     */
+    public function setStoryId($storyId)
+    {
+        $this->storyId = $storyId;
+
+        return $this;
     }
 
     /**
