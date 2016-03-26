@@ -27,7 +27,18 @@ return [
      * ],
      */
     'repositories' => [
-
+        [
+            'repository' => \App\Repositories\UserRepository::class,
+            'entity' => \App\Entities\User::class,
+        ],
+        [
+            'repository' => \App\Repositories\StoryRepository::class,
+            'entity' => \App\Entities\Story::class,
+        ],
+        [
+            'repository' => \App\Repositories\CommentRepository::class,
+            'entity' => \App\Entities\Comment::class,
+        ],
     ]
 
 ];
